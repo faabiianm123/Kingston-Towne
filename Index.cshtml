@@ -1,0 +1,71 @@
+@page
+@model app.Pages_Movies.IndexModel
+
+@{
+    ViewData["Title"] = "Registro";
+}
+<style>
+    .letra{
+        color: rgb(255, 249, 51 );
+    }
+    .numero{
+        color: black;
+    }
+    #com{
+      color: darkred;
+    }
+</style>
+<body background="https://discurramba.com/wp-content/uploads/2021/02/Grupo-159-min-2.png" alt="500" width="500" >
+<center><h1>Licorera Kingston Towne</h1></center>
+
+<p>
+    <a asp-page="Create">Nuevo producto</a>
+</p>
+ 
+ <center><img src="https://c.tenor.com/84cGrh8j3nMAAAAC/cocktail.gif" alt="250" width="250"></center>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+              <b class="letra">  @Html.DisplayNameFor(model => model.Movie[0].producto)</b>
+            </th>
+            <th>
+              <b class="numero">  @Html.DisplayNameFor(model => model.Movie[0].Precio)</b>
+            </th>
+            <th>
+              <b class="letra"> @Html.DisplayNameFor(model => model.Movie[0].Tipo)</b> 
+            </th>
+            <th>
+               <b class="numero"></b> @Html.DisplayNameFor(model => model.Movie[0].Domicilio)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody >
+@foreach (var item in Model.Movie) {
+     
+        <tr>
+            <td class="letra">
+              <b class="letra"> @Html.DisplayFor(modelItem => item.producto)</b>
+            </td>
+            <td class="letra">
+              <b class="numero">  @Html.DisplayFor(modelItem => item.Precio)</b>
+            </td>
+            <td class="letra">
+              <b class="letra">  @Html.DisplayFor(modelItem => item.Tipo)</b>
+            </td>
+            <td class="letra">
+               <b class="numero"> @Html.DisplayFor(modelItem => item.Domicilio)</b>
+            </td >
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Actualizar</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">informacion</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Borrar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<marquee><h2 id="com">Aqui se la vendemos barata compadre</h2></marquee>
+<p>volver al menu querido alcoholico"Cliente" <a href="https://localhost:7237/">de clik aqui</a>.</p>
+</body>
